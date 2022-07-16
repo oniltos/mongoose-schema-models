@@ -16,6 +16,13 @@ User.findOne({name: 'Eva'}, 'name email')
     .then(user => console.log(user))
     .catch(err => console.log(err))
 
+User.findOne({name: 'Eva'}, 'name email') 
+    .then(user => {
+        user.avatarUrl = '/images/eva.png'
+        return user.save()
+    })
+    .catch(err => console.log(err))
+
 //Buscar por ID
 User.findById('62d2e8438fbceba84d8243ac')
     .then(user => console.log(user))
