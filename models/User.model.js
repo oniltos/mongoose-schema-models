@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema({
             validator: value => validator.isLicensePlate(value, 'pt-BR'),
             message: 'Este campo precisa ter uma placa válida'
         }
+    },
+    salary: {
+        type: Number
     }
 }, {timestamps: true})
 
