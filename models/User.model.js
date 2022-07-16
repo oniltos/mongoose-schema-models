@@ -30,6 +30,6 @@ const userSchema = new mongoose.Schema({
             message: 'Este campo precisa ter uma placa válida'
         }
     }
-})
+}, {timestamps: true})
 
 export default mongoose.model('User', userSchema)

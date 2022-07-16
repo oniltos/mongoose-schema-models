@@ -9,9 +9,9 @@ mongoose
 
 
 // const user = new User({
-//     name: 'Fulano 6', 
-//     email: 'fulano5@gmail.com',
-//     username: 'fulano5',
+//     name: 'Fulano 7', 
+//     email: 'fulano7@gmail.com',
+//     username: 'fulano7',
 //     linkedinProfile: 'https://www.linkedin.com',
 //     userWebsite: 'www.banana.com',
 //     carPlate: 'RIO2A18'
@@ -21,8 +21,49 @@ mongoose
 //     .then(newUser => console.log(newUser))
 //     .catch(err => console.log(err))
 
-const gatinho = new Cat({name:'Nala', country: 'BR', age: 3, color: 'white'})
+const usuario = {
+    name: 'Felipe',
+    email: 'felipe@gmail.com',
+    username: 'felipe',
+    linkedinProfile: 'https://www.linkedin.com',
+    userWebsite: 'www.felipe.com',
+    carPlate: 'RIO2A18'
+}
 
-gatinho.save()
-    .then(novoGato => console.log(novoGato))
+const users = [
+    {
+        name: 'Felipe',
+        email: 'felipe@gmail.com',
+        username: 'felipe',
+        linkedinProfile: 'https://www.linkedin.com',
+        userWebsite: 'www.felipe.com',
+        carPlate: 'RIO2A18'
+    },{
+        name: 'Eva',
+        email: 'eva@gmail.com',
+        username: 'felipe',
+        linkedinProfile: 'https://www.linkedin.com',
+        userWebsite: 'www.felipe.com',
+        carPlate: 'RIO2A18'
+    }
+]
+
+// User.create(usuario, (err, userCreated) => {
+//     if(err) {
+//         console.log(err);
+//         return;
+//     }
+
+//     console.log('Novo user criado: ', userCreated)
+// })
+
+//Criar apenas um documento
+User.create(usuario)
+    .then(userCreated => console.log('Novo user criado: ', userCreated))
     .catch(err => console.log(err))
+
+//Criar vários documentos de uma vez
+User.insertMany(users)
+    .then(usersCreated => console.log('Novos users criados: ', usersCreated))
+    .catch(err => console.log(err))
+
